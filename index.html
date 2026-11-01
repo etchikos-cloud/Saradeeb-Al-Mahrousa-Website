@@ -9,147 +9,192 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <style>
-    * { box-sizing: border-box; }
 
-    body {
-      margin: 0;
-      font-family: Tahoma, Arial, sans-serif;
-      background: #111;
-      color: #eee;
-      line-height: 1.9;
-    }
+* {
+  box-sizing: border-box;
+}
 
-    header {
-      background: #21160f;
-      padding: 35px 20px;
-      text-align: center;
-      border-bottom: 3px solid #a87936;
-    }
+body {
+  margin: 0;
+  font-family: Tahoma, Arial, sans-serif;
+  background: #111;
+  color: #eee;
+  line-height: 1.9;
+}
 
-    .logo {
-      width: 145px;
-      max-width: 65%;
-      height: auto;
-      object-fit: contain;
-      display: block;
-      margin: 0 auto 15px;
-    }
+header {
+  background: #21160f;
+  padding: 25px 20px;
+  border-bottom: 3px solid #a87936;
+}
 
-    .banner {
-      display: block;
-      width: 100%;
-      max-width: 900px;
-      height: auto;
-      object-fit: contain;
-      margin: 25px auto 0;
-      border-radius: 8px;
-    }
+.header-content {
+  max-width: 1150px;
+  margin: auto;
+  display: flex;
+  direction: rtl;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
 
-    h1 { color: #d5a65b; font-size: 36px; }
-    header p { color: #ddd; font-size: 18px; }
+.logo {
+  width: 115px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
 
-    main {
-      max-width: 850px;
-      margin: 35px auto;
-      padding: 25px;
-    }
+.banner {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 8px;
+}
 
-    h2 { color: #d5a65b; }
+main {
+  max-width: 850px;
+  margin: 35px auto;
+  padding: 25px;
+}
 
-    .links, .story-form {
-      margin-top: 35px;
-      padding: 25px;
-      background: #211b16;
-      border-radius: 10px;
-    }
+h2 {
+  color: #d5a65b;
+}
 
-    a { color: #e4b96f; margin-left: 20px; }
+.links,
+.story-form {
+  margin-top: 35px;
+  padding: 25px;
+  background: #211b16;
+  border-radius: 10px;
+}
 
-    label {
-      display: block;
-      margin: 15px 0 5px;
-      color: #e4b96f;
-    }
+a {
+  color: #e4b96f;
+  margin-left: 20px;
+}
 
-    input, textarea, select {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #68533b;
-      border-radius: 6px;
-      background: #171411;
-      color: white;
-      font-family: inherit;
-      font-size: 15px;
-    }
+label {
+  display: block;
+  margin: 15px 0 5px;
+  color: #e4b96f;
+}
 
-    textarea {
-      min-height: 180px;
-      resize: vertical;
-    }
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #68533b;
+  border-radius: 6px;
+  background: #171411;
+  color: white;
+  font-family: inherit;
+  font-size: 15px;
+}
 
-    .consent {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      margin: 20px 0;
-    }
+textarea {
+  min-height: 180px;
+  resize: vertical;
+}
 
-    .consent input {
-      width: auto;
-      margin-top: 9px;
-    }
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 20px 0;
+}
 
-    .consent label {
-      margin: 0;
-      color: #ddd;
-    }
+.consent input {
+  width: auto;
+  margin-top: 9px;
+}
 
-    button {
-      background: #a87936;
-      color: #111;
-      border: 0;
-      padding: 13px 25px;
-      border-radius: 6px;
-      font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
-      font-family: inherit;
-    }
+.consent label {
+  margin: 0;
+  color: #ddd;
+}
 
-    button:disabled {
-      opacity: .6;
-      cursor: not-allowed;
-    }
+button {
+  background: #a87936;
+  color: #111;
+  border: 0;
+  padding: 13px 25px;
+  border-radius: 6px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: inherit;
+}
 
-    #formMessage {
-      margin-top: 15px;
-      font-weight: bold;
-    }
+button:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
 
-    footer {
-      text-align: center;
-      padding: 25px;
-      color: #999;
-      border-top: 1px solid #444;
-    }
+#formMessage {
+  margin-top: 15px;
+  font-weight: bold;
+}
 
-    @media (max-width: 600px) {
-      h1 { font-size: 28px; }
-      main { padding: 15px; }
-      .story-form, .links { padding: 18px; }
-    }
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #999;
+  border-top: 1px solid #444;
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 15px 12px;
+  }
+
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .logo {
+    width: 75px;
+  }
+
+  .banner {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  main {
+    padding: 15px;
+  }
+
+  .story-form,
+  .links {
+    padding: 18px;
+  }
+}
   </style>
 </head>
 
 <body>
 
 <header>
-  <img class="logo" src="logo.png" alt="شعار سراديب المحروسة">
+  <div class="header-content">
 
-  <h1>سراديب المحروسة</h1>
-  <p>حكايات وأساطير وخرافات من ذاكرة مصر الشعبية</p>
+    <img class="logo"
+         src="logo.png"
+         alt="شعار سراديب المحروسة">
 
-  <img class="banner" src="banner.png" alt="بانر سراديب المحروسة">
+    <img class="banner"
+         src="banner.png"
+         alt="بانر سراديب المحروسة">
+
+  </div>
 </header>
 
 <main>
