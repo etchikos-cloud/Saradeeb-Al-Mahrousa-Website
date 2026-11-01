@@ -4,363 +4,323 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>سراديب المحروسة | حكايات من قلب مصر</title>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <title>سراديب المحروسة | حكايات من قلب مصر</title>
+  <meta name="description" content="سراديب المحروسة مشروع لجمع وتوثيق الحكايات الشعبية والأساطير والخرافات من القرى والمدن المصرية.">
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
 
-* {
-  box-sizing: border-box;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-body {
-  margin: 0;
-  font-family: Tahoma, Arial, sans-serif;
-  background: #111;
-  color: #eee;
-  line-height: 1.9;
-}
+    body {
+      margin: 0;
+      font-family: Tahoma, Arial, sans-serif;
+      background: #111;
+      color: #eee;
+      line-height: 1.9;
+    }
 
-header {
-  background: #21160f;
-  padding: 25px 20px;
-  border-bottom: 3px solid #a87936;
-}
+    header {
+      background: #21160f;
+      padding: 20px;
+      border-bottom: 3px solid #a87936;
+    }
 
-.header-content {
-  max-width: 1150px;
-  margin: auto;
-  display: flex;
-  direction: rtl;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 20px;
-}
+    .banner {
+      display: block;
+      width: 100%;
+      max-width: 1100px;
+      height: auto;
+      object-fit: contain;
+      margin: auto;
+      border-radius: 8px;
+    }
 
-.logo {
-  width: 115px;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  flex-shrink: 0;
-}
+    nav {
+      background: #19130f;
+      border-bottom: 1px solid #6c4c27;
+      padding: 12px 15px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-.banner {
-  display: block;
-  width: 100%;
-  max-width: 900px;
-  height: auto;
-  object-fit: contain;
-  margin: 0 auto;
-  border-radius: 8px;
-}
+    .nav-links {
+      max-width: 1150px;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px 25px;
+    }
 
-main {
-  max-width: 850px;
-  margin: 35px auto;
-  padding: 25px;
-}
+    nav a {
+      color: #e4b96f;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 15px;
+    }
 
-h2 {
-  color: #d5a65b;
-}
+    nav a:hover {
+      color: white;
+    }
 
-.links,
-.story-form {
-  margin-top: 35px;
-  padding: 25px;
-  background: #211b16;
-  border-radius: 10px;
-}
+    main {
+      max-width: 1100px;
+      margin: 35px auto;
+      padding: 20px;
+    }
 
-a {
-  color: #e4b96f;
-  margin-left: 20px;
-}
+    section {
+      margin-bottom: 40px;
+    }
 
-label {
-  display: block;
-  margin: 15px 0 5px;
-  color: #e4b96f;
-}
+    h1, h2 {
+      color: #d5a65b;
+    }
 
-input,
-textarea,
-select {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #68533b;
-  border-radius: 6px;
-  background: #171411;
-  color: white;
-  font-family: inherit;
-  font-size: 15px;
-}
+    h1 {
+      font-size: 30px;
+      text-align: center;
+    }
 
-textarea {
-  min-height: 180px;
-  resize: vertical;
-}
+    h2 {
+      font-size: 24px;
+    }
 
-.consent {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  margin: 20px 0;
-}
+    .intro {
+      text-align: center;
+      padding: 30px 20px;
+      background: #211b16;
+      border-radius: 12px;
+    }
 
-.consent input {
-  width: auto;
-  margin-top: 9px;
-}
+    .intro p {
+      max-width: 800px;
+      margin: 15px auto;
+    }
 
-.consent label {
-  margin: 0;
-  color: #ddd;
-}
+    .stories-section {
+      background: #211b16;
+      padding: 25px;
+      border-radius: 12px;
+    }
 
-button {
-  background: #a87936;
-  color: #111;
-  border: 0;
-  padding: 13px 25px;
-  border-radius: 6px;
-  font-size: 17px;
-  font-weight: bold;
-  cursor: pointer;
-  font-family: inherit;
-}
+    .story-placeholder {
+      padding: 20px;
+      border: 1px solid #68533b;
+      border-radius: 8px;
+      text-align: center;
+      color: #ccc;
+    }
 
-button:disabled {
-  opacity: .6;
-  cursor: not-allowed;
-}
+    .submit-section {
+      text-align: center;
+      padding: 30px 20px;
+      background: #2b2016;
+      border: 1px solid #a87936;
+      border-radius: 12px;
+    }
 
-#formMessage {
-  margin-top: 15px;
-  font-weight: bold;
-}
+    .main-button {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 12px 28px;
+      background: #a87936;
+      color: #111;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 7px;
+    }
 
-footer {
-  text-align: center;
-  padding: 25px;
-  color: #999;
-  border-top: 1px solid #444;
-}
+    .main-button:hover {
+      background: #d5a65b;
+    }
 
-@media (max-width: 600px) {
-  header {
-    padding: 15px 12px;
-  }
+    .about-section {
+      padding: 25px;
+      background: #211b16;
+      border-radius: 12px;
+    }
 
-  .header-content {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
+    .legal-links {
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid #444;
+    }
 
-  .logo {
-    width: 75px;
-  }
+    .legal-links a {
+      color: #e4b96f;
+      margin: 0 12px;
+      text-decoration: none;
+    }
 
-  .banner {
-    width: 100%;
-    margin: 0 auto;
-  }
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #999;
+      border-top: 1px solid #444;
+      background: #17120e;
+    }
 
-  main {
-    padding: 15px;
-  }
+    @media (max-width: 600px) {
+      header {
+        padding: 12px;
+      }
 
-  .story-form,
-  .links {
-    padding: 18px;
-  }
-}
+      nav {
+        position: static;
+      }
+
+      .nav-links {
+        gap: 8px 15px;
+      }
+
+      nav a {
+        font-size: 14px;
+      }
+
+      main {
+        padding: 15px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      h2 {
+        font-size: 21px;
+      }
+
+      .intro,
+      .stories-section,
+      .about-section,
+      .submit-section {
+        padding: 18px;
+      }
+    }
   </style>
 </head>
 
 <body>
 
-<header>
-  <div class="header-content">
+  <!-- البانر الرسمي للمشروع -->
+  <header>
+    <img
+      class="banner"
+      src="banner.png"
+      alt="سراديب المحروسة - حكايات من قلب مصر">
+  </header>
 
-    <img class="logo"
-         src="logo.png"
-         alt="شعار سراديب المحروسة">
+  <!-- القائمة الرئيسية -->
+  <nav>
+    <div class="nav-links">
+      <a href="index.html">الرئيسية</a>
+      <a href="stories.html">مكتبة الحكايات</a>
+      <a href="submit-story.html">احكِ حكايتك</a>
+      <a href="about.html">عن المشروع</a>
+      <a href="contact.html">تواصل معنا</a>
+    </div>
+  </nav>
 
-    <img class="banner"
-         src="banner.png"
-         alt="بانر سراديب المحروسة">
+  <main>
 
-  </div>
-</header>
+    <!-- مقدمة الموقع -->
+    <section class="intro">
+      <h1>أهلاً بكم في سراديب المحروسة</h1>
 
-<main>
+      <p>
+        هنا تبدأ الرحلة إلى عالم الحكايات المصرية القديمة،
+        حيث تختبئ بين شوارع المدن وبيوت القرى أسرار وأساطير
+        وروايات تناقلتها الأجيال.
+      </p>
 
-  <h2>من نحن؟</h2>
+      <p>
+        حكايات من الذاكرة الشعبية المصرية،
+        بعضها يثير الدهشة، وبعضها يبعث الرعب،
+        وبعضها يستحق أن يُروى من جديد.
+      </p>
 
-  <p>
-    سراديب المحروسة مشروع إعلامي يهتم بجمع وتوثيق الحكايات
-    الشعبية والأساطير والخرافات المتداولة في القرى والمدن المصرية،
-    وتقديمها في صورة محتوى مرئي باللغة العربية.
-  </p>
+      <a class="main-button" href="stories.html">
+        اكتشف الحكايات
+      </a>
+    </section>
 
-  <p>
-    نهدف إلى حفظ الذاكرة الشعبية المصرية وإتاحة مساحة لأصحاب
-    الحكايات والروايات لمشاركة قصصهم وتجاربهم.
-    وتُقدَّم الحكايات باعتبارها روايات شعبية وموروثًا ثقافيًا،
-    وليست بالضرورة وقائع مثبتة.
-  </p>
+    <!-- مكتبة الحكايات -->
+    <section class="stories-section">
+      <h2>من ذاكرة مصر الشعبية</h2>
 
-  <section class="story-form" id="share-story">
-    <h2>احكِ حكايتك</h2>
+      <p>
+        اكتشف حكايات وأساطير من مختلف المحافظات والقرى المصرية.
+        كل حكاية تحمل جزءًا من تراث المكان وذاكرة أهله.
+      </p>
 
-    <p>
-      هل عندك حكاية شعبية من قريتك أو مدينتك؟
-      شاركها معنا وساعدنا في حفظ ذاكرة مصر.
-    </p>
-
-    <form id="storyForm">
-
-      <label for="title">عنوان الحكاية *</label>
-      <input id="title" maxlength="200" required
-             placeholder="اكتب عنوان الحكاية">
-
-      <label for="story">تفاصيل الحكاية *</label>
-      <textarea id="story" minlength="20" maxlength="20000"
-                required placeholder="احكيلنا الحكاية بالتفصيل..."></textarea>
-
-      <label for="governorate">المحافظة</label>
-      <input id="governorate" placeholder="مثال: كفر الشيخ">
-
-      <label for="village">القرية أو المدينة</label>
-      <input id="village" placeholder="اسم القرية أو المدينة">
-
-      <label for="category">نوع الحكاية</label>
-      <select id="category">
-        <option value="">اختر التصنيف</option>
-        <option value="خرافة شعبية">خرافة شعبية</option>
-        <option value="أسطورة">أسطورة</option>
-        <option value="حكاية مرعبة">حكاية مرعبة</option>
-        <option value="حكاية إعجازية">حكاية إعجازية</option>
-        <option value="تراث شعبي">تراث شعبي</option>
-        <option value="أخرى">أخرى</option>
-      </select>
-
-      <label for="credit">كيف تحب أن يظهر اسمك؟</label>
-      <select id="credit">
-        <option value="anonymous">بدون اسم</option>
-        <option value="name">اسمي الحقيقي</option>
-        <option value="pseudonym">اسم مستعار</option>
-      </select>
-
-      <label for="contributorName">اسمك الحقيقي (اختياري)</label>
-      <input id="contributorName" maxlength="150"
-             placeholder="اسم الراوي">
-
-      <label for="pseudonym">الاسم المستعار (اختياري)</label>
-      <input id="pseudonym" maxlength="150"
-             placeholder="الاسم الذي تريد ظهوره">
-
-      <label for="contact">وسيلة تواصل اختيارية</label>
-      <input id="contact" maxlength="200"
-             placeholder="بريد إلكتروني أو وسيلة تواصل">
-
-      <div class="consent">
-        <input type="checkbox" id="consent" required>
-        <label for="consent">
-          أوافق على إرسال الحكاية إلى إدارة سراديب المحروسة
-          لمراجعتها والتواصل معي بشأنها. وأفهم أنها لن تُنشر
-          إلا بعد مراجعتها والموافقة عليها والاتفاق على طريقة
-          ذكر اسمي إن رغبت في ذلك.
-        </label>
+      <div class="story-placeholder">
+        ستظهر هنا أحدث الحكايات بعد تجهيز مكتبة الحكايات.
       </div>
 
-      <button type="submit" id="submitButton">
-        إرسال الحكاية
-      </button>
+      <p style="text-align:center;">
+        <a class="main-button" href="stories.html">
+          تصفح مكتبة الحكايات
+        </a>
+      </p>
+    </section>
 
-      <div id="formMessage" role="status" aria-live="polite"></div>
+    <!-- دعوة لمشاركة الحكايات -->
+    <section class="submit-section">
+      <h2>هل تعرف حكاية تستحق أن تُروى؟</h2>
 
-    </form>
-  </section>
+      <p>
+        في كل قرية ومدينة مصرية حكايات لا يعرفها إلا أهلها.
+        شاركنا حكايتك وساعدنا في حفظ ذاكرة مصر الشعبية.
+      </p>
 
-  <div class="links">
-    <h2>السياسات القانونية</h2>
-    <a href="terms.html">شروط الاستخدام</a>
-    <a href="privacy.html">سياسة الخصوصية</a>
-  </div>
+      <a class="main-button" href="submit-story.html">
+        احكِ حكايتك
+      </a>
+    </section>
 
-</main>
+    <!-- نبذة عن المشروع -->
+    <section class="about-section">
+      <h2>عن سراديب المحروسة</h2>
 
-<footer>
-  © 2026 سراديب المحروسة - جميع الحقوق محفوظة
-</footer>
+      <p>
+        سراديب المحروسة مشروع إعلامي يهتم بجمع وتوثيق
+        الحكايات الشعبية والأساطير والخرافات المتداولة
+        في القرى والمدن المصرية، وتقديمها في صورة محتوى
+        مرئي ومكتوب باللغة العربية.
+      </p>
 
-<script>
-  // ضع عنوان مشروع Supabase والمفتاح العام هنا
-  const SUPABASE_URL = "https://gdlszssbcvkmfxksgltv.supabase.co";
-  const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_og3wbQS9TrYBofOZzXZj8A_1OAZ37qT";
+      <p>
+        نهدف إلى حفظ الذاكرة الشعبية المصرية وإتاحة مساحة
+        لأصحاب الحكايات والروايات لمشاركة قصصهم وتجاربهم.
+      </p>
 
-  const supabaseClient = window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_PUBLISHABLE_KEY
-  );
+      <p>
+        تُقدَّم الحكايات باعتبارها روايات شعبية وموروثًا
+        ثقافيًا، وليست بالضرورة وقائع مثبتة.
+      </p>
 
-  const form = document.getElementById("storyForm");
-  const message = document.getElementById("formMessage");
-  const submitButton = document.getElementById("submitButton");
+      <a href="about.html">اقرأ المزيد عن المشروع</a>
+    </section>
 
-  form.addEventListener("submit", async function(event) {
-    event.preventDefault();
+    <!-- روابط قانونية -->
+    <section class="legal-links">
+      <a href="privacy.html">سياسة الخصوصية</a>
+      <a href="terms.html">شروط الاستخدام</a>
+    </section>
 
-    message.textContent = "";
-    submitButton.disabled = true;
-    submitButton.textContent = "جارٍ إرسال الحكاية...";
+  </main>
 
-    const credit = document.getElementById("credit").value;
-
-    const storyData = {
-      title: document.getElementById("title").value.trim(),
-      story: document.getElementById("story").value.trim(),
-      governorate: document.getElementById("governorate").value.trim() || null,
-      village: document.getElementById("village").value.trim() || null,
-      category: document.getElementById("category").value || null,
-      contributor_name: document.getElementById("contributorName").value.trim() || null,
-      pseudonym: document.getElementById("pseudonym").value.trim() || null,
-      credit_preference: credit,
-      contact_info: document.getElementById("contact").value.trim() || null,
-      consent_to_publish: document.getElementById("consent").checked
-    };
-
-    try {
-      const { error } = await supabaseClient
-        .from("story_submissions")
-        .insert([storyData]);
-
-      if (error) throw error;
-
-      message.style.color = "#9bd49b";
-      message.textContent =
-        "وصلتنا حكايتك بنجاح! ستظل قيد المراجعة حتى تتواصل معك الإدارة.";
-
-      form.reset();
-
-    } catch (error) {
-      console.error("Story submission error:", error);
-
-      message.style.color = "#ff9999";
-      message.textContent =
-        "لم نتمكن من إرسال الحكاية حاليًا. حاول مرة أخرى لاحقًا.";
-
-    } finally {
-      submitButton.disabled = false;
-      submitButton.textContent = "إرسال الحكاية";
-    }
-  });
-</script>
+  <footer>
+    © 2026 سراديب المحروسة - جميع الحقوق محفوظة
+  </footer>
 
 </body>
 </html>
