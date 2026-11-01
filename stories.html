@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -9,9 +9,7 @@
   <meta name="description" content="اكتشف الحكايات الشعبية والأساطير والخرافات المصرية في مكتبة سراديب المحروسة.">
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -58,9 +56,7 @@
       font-weight: bold;
     }
 
-    nav a:hover {
-      color: white;
-    }
+    nav a:hover { color: white; }
 
     main {
       max-width: 1100px;
@@ -68,24 +64,17 @@
       padding: 20px;
     }
 
-    h1, h2 {
-      color: #d5a65b;
-    }
+    h1, h2 { color: #d5a65b; }
 
-    .page-intro {
-      text-align: center;
+    .page-intro,
+    .search-box {
       background: #211b16;
       padding: 30px 20px;
       border-radius: 12px;
       margin-bottom: 30px;
     }
 
-    .search-box {
-      background: #211b16;
-      padding: 22px;
-      border-radius: 12px;
-      margin-bottom: 30px;
-    }
+    .page-intro { text-align: center; }
 
     input, select {
       width: 100%;
@@ -118,6 +107,8 @@
       border-radius: 10px;
       padding: 20px;
       transition: transform .2s, border-color .2s;
+      display: flex;
+      flex-direction: column;
     }
 
     .story-card:hover {
@@ -137,10 +128,34 @@
 
     .story-card a {
       display: inline-block;
-      margin-top: 12px;
+      margin-top: auto;
+      padding-top: 12px;
       color: #d5a65b;
       text-decoration: none;
       font-weight: bold;
+    }
+
+    .story-card a:hover { color: white; }
+
+    .status {
+      display: inline-block;
+      width: fit-content;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      margin-bottom: 12px;
+      background: #49351e;
+      color: #f0c77e;
+    }
+
+    .status.published {
+      background: #1d4930;
+      color: #a8e5bb;
+    }
+
+    .status.ready {
+      background: #293e50;
+      color: #b9dcf5;
     }
 
     .empty-message {
@@ -159,6 +174,12 @@
       text-decoration: none;
     }
 
+    .results-count {
+      color: #aaa;
+      margin: 10px 0 20px;
+      font-size: 14px;
+    }
+
     footer {
       text-align: center;
       padding: 25px;
@@ -168,44 +189,23 @@
     }
 
     @media (max-width: 800px) {
-      .stories-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      .stories-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 600px) {
-      header {
-        padding: 12px;
-      }
+      header { padding: 12px; }
+      nav { padding: 10px; }
 
-      nav {
-        padding: 10px;
-      }
+      .nav-links { gap: 8px 15px; }
+      nav a { font-size: 14px; }
 
-      .nav-links {
-        gap: 8px 15px;
-      }
+      main { padding: 15px; }
 
-      nav a {
-        font-size: 14px;
-      }
-
-      main {
-        padding: 15px;
-      }
-
-      .filters {
-        grid-template-columns: 1fr;
-      }
-
-      .stories-grid {
-        grid-template-columns: 1fr;
-      }
+      .filters,
+      .stories-grid { grid-template-columns: 1fr; }
 
       .page-intro,
-      .search-box {
-        padding: 18px;
-      }
+      .search-box { padding: 18px; }
     }
   </style>
 </head>
@@ -213,10 +213,7 @@
 <body>
 
   <header>
-    <img
-      class="banner"
-      src="banner.png"
-      alt="سراديب المحروسة">
+    <img class="banner" src="banner.png" alt="سراديب المحروسة">
   </header>
 
   <nav>
@@ -258,41 +255,13 @@
 
         <div>
           <label for="governorateFilter">المحافظة</label>
-
-          <select id="governorateFilter">
-            <option value="">كل المحافظات</option>
-            <option value="القاهرة">القاهرة</option>
-            <option value="الإسكندرية">الإسكندرية</option>
-            <option value="كفر الشيخ">كفر الشيخ</option>
-            <option value="البحيرة">البحيرة</option>
-            <option value="الدقهلية">الدقهلية</option>
-            <option value="الغربية">الغربية</option>
-            <option value="الشرقية">الشرقية</option>
-            <option value="المنوفية">المنوفية</option>
-            <option value="الجيزة">الجيزة</option>
-            <option value="الفيوم">الفيوم</option>
-            <option value="بني سويف">بني سويف</option>
-            <option value="المنيا">المنيا</option>
-            <option value="أسيوط">أسيوط</option>
-            <option value="سوهاج">سوهاج</option>
-            <option value="قنا">قنا</option>
-            <option value="الأقصر">الأقصر</option>
-            <option value="أسوان">أسوان</option>
-            <option value="مطروح">مطروح</option>
-            <option value="شمال سيناء">شمال سيناء</option>
-            <option value="جنوب سيناء">جنوب سيناء</option>
-            <option value="البحر الأحمر">البحر الأحمر</option>
-            <option value="الوادي الجديد">الوادي الجديد</option>
-            <option value="الإسماعيلية">الإسماعيلية</option>
-            <option value="السويس">السويس</option>
-            <option value="بورسعيد">بورسعيد</option>
-            <option value="دمياط">دمياط</option>
+          <select id="governorateFilter" disabled>
+            <option value="">سيتم تفعيل المحافظات لاحقًا</option>
           </select>
         </div>
 
         <div>
           <label for="categoryFilter">نوع الحكاية</label>
-
           <select id="categoryFilter">
             <option value="">كل الأنواع</option>
             <option value="خرافة شعبية">خرافة شعبية</option>
@@ -310,24 +279,12 @@
     <section>
       <h2>الحكايات المتاحة</h2>
 
+      <p class="results-count" id="resultsCount"></p>
+
       <div class="stories-grid" id="storiesGrid">
-
         <div class="empty-message">
-          <h3>مكتبة الحكايات قيد التجهيز</h3>
-
-          <p>
-            نعمل على تجهيز أرشيف الحكايات المصرية
-            لإتاحته للزوار قريبًا.
-          </p>
-
-          <p>
-            يمكنك المساهمة وإرسال حكايتك من خلال
-            صفحة «احكِ حكايتك».
-          </p>
-
-          <a href="submit-story.html">شاركنا حكايتك</a>
+          جارٍ تحميل الحكايات من المكتبة...
         </div>
-
       </div>
     </section>
 
@@ -341,11 +298,50 @@
     © 2026 سراديب المحروسة - جميع الحقوق محفوظة
   </footer>
 
-  <script>
-    // سيتم ربط مكتبة الحكايات بقاعدة البيانات
-    // بعد تجهيز جدول القصص المنشورة ولوحة الإدارة.
-    // لا نعرض حكايات تجريبية أو عناوين غير موجودة.
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-</body>
-</html>
+  <script>
+    const SUPABASE_URL = "https://gdlszssbcvkmfxksgltv.supabase.co";
+    const SUPABASE_KEY = "sb_publishable_og3wbQS9TrYBofOZzXZj8A_1OAZ37qT";
+
+    const supabaseClient = window.supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_KEY
+    );
+
+    const storiesGrid = document.getElementById("storiesGrid");
+    const searchInput = document.getElementById("searchInput");
+    const categoryFilter = document.getElementById("categoryFilter");
+    const resultsCount = document.getElementById("resultsCount");
+
+    let allStories = [];
+
+    function escapeHTML(value) {
+      return String(value ?? "").replace(/[&<>"']/g, function(char) {
+        return {
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#039;"
+        }[char];
+      });
+    }
+
+    function getStatusLabel(status) {
+      if (status === "published") return "منشورة";
+      if (status === "ready") return "جاهزة للنشر";
+      return "قريبًا";
+    }
+
+    function renderStories(stories) {
+      storiesGrid.innerHTML = "";
+
+      resultsCount.textContent =
+        "عدد الحكايات المعروضة: " + stories.length;
+
+      if (!stories.length) {
+        storiesGrid.innerHTML = `
+          <div class="empty-message">
+            <h3>لم نعثر على حكايات مطابقة</h3>
+            <p>جرّب تغيير كلمات البحث أو نوع الح
