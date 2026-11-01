@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>الحكاية | سراديب المحروسة</title>
+
+  <meta name="description" content="اكتشف الحكايات والأساطير الشعبية المصرية في سراديب المحروسة.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Tahoma, Arial, sans-serif;
+      background: #111;
+      color: #eee;
+      line-height: 2;
+    }
+
+    header {
+      background: #21160f;
+      padding: 20px;
+      border-bottom: 3px solid #a87936;
+    }
+
+    .banner {
+      display: block;
+      width: 100%;
+      max-width: 1100px;
+      height: auto;
+      margin: auto;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    nav {
+      background: #19130f;
+      padding: 12px;
+      border-bottom: 1px solid #6c4c27;
+    }
+
+    .nav-links {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px 25px;
+    }
+
+    nav a {
+      color: #e4b96f;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    main {
+      max-width: 950px;
+      margin: 35px auto;
+      padding: 20px;
+    }
+
+    .story-container {
+      background: #211b16;
+      border: 1px solid #59432b;
+      border-radius: 12px;
+      padding: 30px;
+    }
+
+    .story-title {
+      color: #d5a65b;
+      font-size: 30px;
+      margin-top: 0;
+      line-height: 1.6;
+    }
+
+    .story-meta {
+      color: #bbb;
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    .story-image {
+      display: block;
+      width: 100%;
+      max-height: 500px;
+      object-fit: contain;
+      background: #171411;
+      border-radius: 10px;
+      margin: 25px auto;
+    }
+
+    .story-text {
+      font-size: 18px;
+      color: #eee;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+
+    .story-section {
+      margin-top: 35px;
+      padding-top: 20px;
+      border-top: 1px solid #59432b;
+    }
+
+    .story-section h2 {
+      color: #d5a65b;
+      font-size: 22px;
+    }
+
+    .story-video {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      border-radius: 10px;
+      background: #000;
+    }
+
+    .source-info {
+      background: #171411;
+      padding: 20px;
+      border-radius: 8px;
+      color: #ccc;
+    }
+
+    .notice {
+      color: #c9ad82;
+      font-size: 14px;
+      margin-top: 25px;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 25px;
+      background: #a87936;
+      color: #111;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 7px;
+    }
+
+    .back-button:hover {
+      background: #d5a65b;
+    }
+
+    .not-found {
+      text-align: center;
+      padding: 40px 20px;
+      background: #211b16;
+      border-radius: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #999;
+      border-top: 1px solid #444;
+      background: #17120e;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 12px;
+      }
+
+      nav {
+        padding: 10px;
+      }
+
+      .nav-links {
+        gap: 8px 15px;
+      }
+
+      nav a {
+        font-size: 14px;
+      }
+
+      main {
+        padding: 15px;
+      }
+
+      .story-container {
+        padding: 18px;
+      }
+
+      .story-title {
+        font-size: 24px;
+      }
+
+      .story-text {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <img
+      class="banner"
+      src="banner.png"
+      alt="سراديب المحروسة">
+  </header>
+
+  <nav>
+    <div class="nav-links">
+      <a href="index.html">الرئيسية</a>
+      <a href="stories.html">مكتبة الحكايات</a>
+      <a href="submit-story.html">احكِ حكايتك</a>
+      <a href="about.html">عن المشروع</a>
+      <a href="contact.html">تواصل معنا</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <article class="story-container" id="storyContainer">
+
+      <div class="not-found">
+        <h1 class="story-title">الحكاية قيد التجهيز</h1>
+
+        <p>
+          لم يتم ربط هذه الصفحة بالحكايات المنشورة حتى الآن.
+          سنعمل على إظهار الحكاية المطلوبة هنا بمجرد ربط المكتبة
+          بقاعدة البيانات.
+        </p>
+
+        <a class="back-button" href="stories.html">
+          العودة إلى مكتبة الحكايات
+        </a>
+      </div>
+
+    </article>
+
+    <p class="notice">
+      تُعرض الحكايات باعتبارها روايات شعبية وموروثًا ثقافيًا،
+      ولا يعني نشرها أنها وقائع مثبتة تاريخيًا.
+    </p>
+
+  </main>
+
+  <footer>
+    © 2026 سراديب المحروسة - جميع الحقوق محفوظة
+  </footer>
+
+  <script>
+    /*
+      سيتم لاحقًا ربط هذه الصفحة بقاعدة بيانات Supabase.
+
+      مثال على رابط الحكاية:
+      story.html?id=معرف_الحكاية
+
+      عند اختيار حكاية من stories.html،
+      ستقرأ هذه الصفحة المعرّف وتعرض بيانات الحكاية
+      وصورتها وفيديوها ومصدرها.
+    */
+  </script>
+
+</body>
+</html>
